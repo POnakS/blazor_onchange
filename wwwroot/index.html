@@ -14,7 +14,27 @@
 
 <body>
 
-    <app-element/>
+I'm regular component
+<app-element></app-element>
+
+
+    <div id="@elementId"></div>
+    <template id="template-@elementId" style="width: 100%; height: 100%">
+        <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet" />
+        <link href="css/app.css" rel="stylesheet" />
+        <link rel="icon" type="image/png" href="favicon.png" />
+        <link href="blazor_onchange.styles.css" rel="stylesheet" />
+        I'm component in shadow dom
+        <app-element></app-element>
+    </template>
+    <script>
+        const element = document.getElementById('@elementId');
+
+        let template = document.getElementById('template-@elementId');
+        const shadow = element.attachShadow({mode: 'open'});
+        shadow.appendChild(template.content.cloneNode(true));
+    </script>
+
 
     <script src="_framework/blazor.webassembly.js"></script>
 </body>

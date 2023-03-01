@@ -1,9 +1,12 @@
-﻿@page "/"
+﻿
 
-<PageTitle>Index</PageTitle>
 
-<h1>Hello, world!</h1>
+Type data into input
+<input @bind="data" />
 
-Welcome to your new app.
+<span>Data bound to input: @data</span>
 
-<SurveyPrompt Title="How is Blazor working for you?" />
+
+@code {
+    string data { get; set; } = "";
+}
